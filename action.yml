@@ -1,5 +1,8 @@
 name: 'YAML Schema Validator'
 description: 'Validate YAML files in a repo according to settings'
+branding:
+  icon: 'award'
+  color: 'green'
 inputs:
   settingsFile:
     description: 'Location of schema configuration file'
