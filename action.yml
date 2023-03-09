@@ -17,8 +17,6 @@ outputs:
   invalidFiles:
     description: 'Comma separated list of files that failed the schema validation'
 runs:
-  using: 'node12'
+  using: 'node16'
   main: 'lib/index.js'
-branding:
-  icon: 'check'
-  color: orange
+
