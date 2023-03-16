@@ -5,10 +5,10 @@ import { YAMLValidation } from 'yaml-language-server/lib/umd/languageservice/ser
 import { YAMLSchemaService } from 'yaml-language-server/lib/umd/languageservice/services/yamlSchemaService'
 import { schemaRequestHandler } from './services/schemaRequestHandler'
 
-export class SchemaValidator { 
+export class SchemaValidator {
 
   constructor(schemaSettings : any, workspaceRoot : string) {
-    this.addSchemaSettings(schemaSettings);     
+    this.addSchemaSettings(schemaSettings);
     this.buildValidator(workspaceRoot);
   }
 
@@ -21,14 +21,15 @@ export class SchemaValidator {
     format: false,
     isKubernetes: false,
     schemas: [],
-    customTags: []
+    customTags: [],
+    yamlVersion: '1.2'
   };
 
   private addSchemaSettings(schemaSettings) {
-  
+
     for (const uri in schemaSettings) {
         const globPattern = schemaSettings[uri];
-  
+
         const schemaObj = {
             'fileMatch': Array.isArray(globPattern) ? globPattern : [globPattern],
             'uri': uri
@@ -41,11 +42,11 @@ export class SchemaValidator {
 
     // Request Service: Fetches file content from given location
     const requestService = schemaRequestHandler.bind(null, workspaceRoot);
-    
+
     // Context Service: Resolves relative file locations (not sure why it's needed as request service handles that too...)
     const contextService = {
-      resolveRelativePath: (relativePath: string, resource: string) => 
-        URL.resolve(resource, relativePath)  
+      resolveRelativePath: (relativePath: string, resource: string) =>
+        URL.resolve(resource, relativePath)
     };
 
     /////////////////////////////////////////////////////////////////////
@@ -86,7 +87,7 @@ export class SchemaValidator {
       console.log(JSON.stringify(results));
       return false;
     }
-      
+
     return true;
   }
 

@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## [1.0.1] - 2023-03-16
+### Fixed
+- provided default YAML version for schema validation
+
 ## [1.0.0] - 2023-03-09
 ### Changed
 - released v1.0.0 from pl-strflt org since https://github.com/nwisbeta/validate-yaml-schema is archived
