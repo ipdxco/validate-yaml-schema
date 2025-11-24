@@ -9,7 +9,7 @@ jobs:
         os: [macos-latest, ubuntu-latest, windows-latest]
       fail-fast: false
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - id: validate-yaml-schema
         uses: ./
         with:
